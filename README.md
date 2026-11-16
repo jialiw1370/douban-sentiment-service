@@ -15,7 +15,7 @@ FastAPI service around the winner.
 
 ## Current status
 
-- [ ] Day 1: Download the data and check it
+- [ ] Day 1: Verify the recovered data and lexicon
 - [ ] Day 2: Clean + sample + label (100,000 comments)
 - [ ] Day 3: TF-IDF + Logistic Regression baseline
 - [ ] Day 4: Evaluate properly (confusion matrix, error examples)
@@ -35,8 +35,9 @@ again — copy it into the repo root and run `py check_data.py` to verify it
 on Hugging Face as a backup:
 https://huggingface.co/datasets/dirtycomputer/douban_movie_review
 
-The CSV and the lexicon file (`Chinese-Simplified-NRC-EmoLex.txt`) are
-gitignored — never commit them. Labels come from `Star`: 1–2 = negative,
+The CSV is ~2.3 GB on disk and gitignored — never commit it. The lexicon
+file (`Chinese-Simplified-NRC-EmoLex.txt`) stays local too for now, so
+don't `git add` it either. Labels come from `Star`: 1–2 = negative,
 4–5 = positive, 3 = neutral (dropped for the v1 binary classifier).
 
 ## How it works (once built)
@@ -50,12 +51,11 @@ gitignored — never commit them. Labels come from `Star`: 1–2 = negative,
 ## Setup
 
 ```bash
-py -m pip install -r requirements.txt
-py check_data.py
+python3 -m pip install -r requirements.txt
+python3 check_data.py
 ```
 
-On Windows, use `py` (the Python launcher). Plain `python` may open the
-Microsoft Store instead of running Python.
+On this Mac, use `python3`. (On Windows it would be `py`.)
 
 ## Tech stack
 
